@@ -18,14 +18,24 @@ module.exports = {
   // ==== COMPLETE THE FOLLOWING (SEE `model.js` TEST SPEC) =====
   listPeople: function () {
     // returns an array of all people for whom tasks exist
+    return Object.keys(tasks);
   },
 
   add: function (name, task) {
     // saves a task for a given person
+    if (tasks[name]) {
+      tasks[name].push(task);
+    } else {
+      tasks[name] = [];
+      tasks[name].push(task);
+    }
   },
 
   list: function (name) {
     // returns tasks for specified person
+    if (Object.keys(tasks).includes(name)) {
+      return tasks[name];
+    }
   },
 
   complete: function (name, idx) {

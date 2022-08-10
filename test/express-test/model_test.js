@@ -10,16 +10,16 @@ describe('Todo model', function () {
   });
 
   describe('`listPeople` and `add`', function () {
-    xit('initially returns an empty array', function () {
+    it('initially returns an empty array', function () {
       expect(Todos.listPeople()).to.eql([]);
     });
 
-    xit('lists people after they have todos added', function () {
+    it('lists people after they have todos added', function () {
       Todos.add('zeke', { content: 'clean room' });
       expect(Todos.listPeople()).to.eql(['zeke']);
     });
 
-    xit('handles multiple people with multiple todos', function () {
+    it('handles multiple people with multiple todos', function () {
       Todos.add('zeke', { content: 'clean room' });
       Todos.add('zeke', { content: 'write mom' });
       expect(Todos.listPeople()).to.eql(['zeke']);
@@ -29,7 +29,7 @@ describe('Todo model', function () {
   });
 
   describe('`add` and `list`', function () {
-    xit('remembers who does what', function () {
+    it('remembers who does what', function () {
       Todos.add('zeke', { content: 'clean bath room' });
       expect(Todos.list('zeke')).to.have.length(1);
       Todos.add('omri', { content: 'clean living room' });
