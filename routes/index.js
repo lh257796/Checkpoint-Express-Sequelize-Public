@@ -31,12 +31,12 @@ router.post('/users/:name/tasks', async (req, res, next) => {
     let person = req.params.name;
     if (person == undefined) {
         res.status(404).send();
-    };
+    } else {
     Object.values(req.body).forEach(function (value) {
         if (value === '') {
             res.status(400).send();
     }
-  });
+  })};
   let complete = req.body.complete;
     if (!complete){
         complete = false;
