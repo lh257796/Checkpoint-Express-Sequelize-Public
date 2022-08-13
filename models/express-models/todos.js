@@ -22,12 +22,19 @@ module.exports = {
   },
 
   add: function (name, task) {
-    // saves a task for a given person
+    let total;
     if (tasks[name]) {
+      total = tasks[name].length;
       tasks[name].push(task);
+      if (!(tasks[name][total].complete)) {
+        tasks[name][total].complete = false;
+      }
     } else {
       tasks[name] = [];
       tasks[name].push(task);
+      if (!(tasks[name][0].complete)) {
+        tasks[name][0].complete = false;
+      }
     }
   },
 
@@ -39,10 +46,11 @@ module.exports = {
   },
 
   complete: function (name, idx) {
-    // marks a task complete
-  },
+    tasks[name][idx].complete = true;
+},
 
   remove: function (name, idx) {
     // removes a tasks
+    tasks[name].splice(idx,1)
   },
 };
